@@ -1,9 +1,17 @@
+import { parse } from "node:url";
+
 function handler (request, response) {
   const {
     url, 
     method
   } = request
-  console.log({url, method});
+
+  const {
+    pathname
+  } = parse(url, true)
+
+  const key = `${pathname}:${method.toLowerCase()}`
+  console.log(key)
   response.end('hello world')
 }
 
