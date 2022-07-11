@@ -6,7 +6,8 @@ const routes = ({
   heroService
 }) =>({
   '/heroes:get': async (request, response) => {
-    response.write('GET')
+    const heroes = await heroService.find() 
+    response.write(JSON.stringify({ results: heroes }))
     response.end()
   },
   '/heroes:post': async (request, response) => {
