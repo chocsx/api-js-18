@@ -14,7 +14,7 @@ export default class HeroRepository {
     return JSON.parse(await readFile(this.file))
   }
 
-  find() {
+  find(){
     return this.#currentFileContent()
   }
 
@@ -26,22 +26,23 @@ export default class HeroRepository {
       this.file,
       JSON.stringify(currentFile)
     )
-    
+
     return data.id
   }
+  
 }
 
-const heroRepository = new HeroRepository({
-  file: './database/data.json'
-})
+// const heroRepository = new HeroRepository({
+//   file: './database/data.json'
+// })
 
-console.log(
-  await heroRepository.create({
-    id:2,
-    name: 'Chapolin'
-  })
-)
+// console.log(
+//   await heroRepository.create({
+//     id:2,
+//     name: 'Chapolin'
+//   })
+// )
 
-console.log(
-  await heroRepository.find()
-)
+// console.log(
+//   await heroRepository.find()
+// )
