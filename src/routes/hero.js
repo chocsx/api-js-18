@@ -12,15 +12,15 @@ const routes = ({
   '/heroes:post': async (request, response) => {
     const data = await once(request, 'data')
     const item = JSON.parse(data)
-    const hero = new Hero (item)
+    const hero = new Hero(item)
 
     const id = hero.id
-    response.write(201, DEFAULT_HEADER)
+    response.writeHead(201, DEFAULT_HEADER)
     response.write(JSON.stringify({
       id,
-      success: 'User create with success!',
+      success: 'User created with success!!',
     }))
-    
+
     response.end()
   }
 })

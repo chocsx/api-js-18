@@ -9,9 +9,9 @@ test('Hero Integration Test Suite', async(t) => {
   process.env.PORT = testPort
   const { server } = await import('../../src/index.js')
 
-  const testServerAddress = `https://localhost:${testPort}/heroes`
+  const testServerAddress = `http://localhost:${testPort}/heroes`
 
-  await t.test('it should create a hero', async(t) => {
+  await t.test('it should create a hero', async (t) => {
     const data = {
       name: "Batman",
       age: 50,
@@ -33,7 +33,7 @@ test('Hero Integration Test Suite', async(t) => {
     const result = await request.json()
     assert.deepStrictEqual(
       result.success,
-      'User create with success!',
+      'User created with success!!',
       'it should return a valid text message'
     )
     
@@ -41,6 +41,7 @@ test('Hero Integration Test Suite', async(t) => {
       result.id.length > 30,
       'id should be a valid uuid'
     )
+    
   })
 
   await promisify(server.close.bind(server))()
