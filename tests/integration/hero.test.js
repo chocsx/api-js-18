@@ -36,6 +36,7 @@ test('Hero Integration Test Suite', async(t) => {
       'User create with success!',
       'it should return a valid text message'
     )
+    
     assert.ok(
       result.id.length > 30,
       'id should be a valid uuid'
