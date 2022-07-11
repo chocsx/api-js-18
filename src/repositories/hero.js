@@ -33,7 +33,7 @@ export default class HeroRepository {
 }
 
 // const heroRepository = new HeroRepository({
-//   file: './database/data.json'
+//   file: './../database/data.json'
 // })
 
 // console.log(
